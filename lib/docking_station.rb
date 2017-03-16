@@ -13,6 +13,8 @@ class DockingStation
   
   # we pass argument bike, 
   def dock(bike)
+    raise "Docking station full" if @bike
+
   	# creates an instance variable that stores the variable bike (instance of bike)
   	@bike = bike
   end
