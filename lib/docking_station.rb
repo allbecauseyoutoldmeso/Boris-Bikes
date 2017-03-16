@@ -11,16 +11,26 @@ class DockingStation
 
   def release_bike
   	#guard condition raise - guards the rest of the code in this method, similar to if
-    raise "No bikes available" if @stored_bikes.empty?
+    raise "No bikes available" if empty?
     @stored_bikes.pop
   end
   
   # we pass argument bike, 
   def dock(stored_bikes)
-    raise "Docking station full" if @stored_bikes.length >= 20
+    raise "Docking station full" if full?
 
   	# creates an instance variable that stores the variable bike (instance of bike)
   	@stored_bikes << stored_bikes
+  end
+
+  private
+
+  def full?
+  	@stored_bikes.length >= 20
+  end
+
+  def empty?
+    @stored_bikes.empty?
   end
 
 end
