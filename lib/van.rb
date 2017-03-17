@@ -8,7 +8,7 @@ class Van
 		@broken_bikes = broken_bikes 
 	end
 
-	def deliver
+	def delivery
 		broken_bikes
 	end 
 
