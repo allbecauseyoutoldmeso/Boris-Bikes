@@ -2,7 +2,7 @@ require "van"
 
 describe Van do
   it { is_expected.to respond_to(:collect).with(1).argument } 
-  it {is_expected.to respond_to :deliver}
+  it {is_expected.to respond_to :delivery}
 
   describe "#collect" do 
     it "collects broken bikes" do
@@ -12,11 +12,11 @@ describe Van do
     end
  end 
 
-  describe "#deliver" do 
+  describe "#delivery" do 
   	it "delivers broken bikes to garage" do 
       broken_bikes = double('broken_bikes')
       subject.collect([broken_bikes])
-      expect(subject.deliver).to eq [broken_bikes]
+      expect(subject.delivery).to eq [broken_bikes]
     end
  end 
 
