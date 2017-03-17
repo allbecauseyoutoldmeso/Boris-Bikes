@@ -15,6 +15,7 @@ class DockingStation
   def release_bike
   	#guard condition raise - guards the rest of the code in this method, similar to if
     raise "No bikes available" if empty?
+    raise "Bike broken, can't be released" if bike_not_working?
     stored_bikes.pop
   end
   
@@ -37,5 +38,10 @@ class DockingStation
   def empty?
     stored_bikes.empty?
   end
+  
+  def bike_not_working?
+    !stored_bikes[-1].working?  
+  end	
+
 
 end
