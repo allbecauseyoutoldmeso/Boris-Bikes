@@ -1,11 +1,13 @@
 require "./lib/docking_station"
 require "./lib/van"
-require "./lib/bike"
-
-puts docking_station = DockingStation.new
-puts bike = Bike.new
-puts bike.report_broken
-puts docking_station.dock(bike)
-puts docking_station.broken_bikes
-puts van = Van.new
-puts van.collect(docking_station.broken_bikes) 
+require "./lib/garage"
+docking_station = DockingStation.new
+bike = Bike.new
+bike.report_broken
+docking_station.dock(bike)
+docking_station.broken_bikes
+van = Van.new
+van.collect(docking_station.broken_bikes)
+van.delivery
+garage = Garage.new
+garage.receive_delivery(van) 
