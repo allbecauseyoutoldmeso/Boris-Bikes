@@ -7,13 +7,15 @@ describe DockingStation do
 
   describe "#release_bike" do
     it "releases a bike" do 
-      bike = Bike.new
+      # bike = Bike.new # bike class not being tested
+      bike = double("bike")
       subject.dock(bike)
       expect(subject.release_bike).to eq bike
     end
 
     it "releases working bikes" do
-      bike = Bike.new
+      # bike = Bike.new # bike class not being tested
+      bike = double("bike")
       subject.dock(bike)
       subject.release_bike
       expect(bike).to be_working
@@ -24,7 +26,8 @@ describe DockingStation do
     end
     
     it "does not release a broken bike" do 
-      bike = Bike.new
+      # bike = Bike.new # bike class not being tested
+      bike = double("bike")
       bike.report_broken
       subject.dock(bike)
       expect { subject.release_bike }.to raise_error "Bike broken, can't be released"      
@@ -35,19 +38,22 @@ describe DockingStation do
   
   describe '#dock' do
     it "docks bike" do
-      bike = Bike.new
+      #bike = Bike.new # class not being tested
+      bike = double("bike")
       expect(subject.dock(bike)).to eq [bike]
     end
 
     it "raises an error when docking station is at full capacity" do
       docking_station = DockingStation.new(50)
-      50.times { docking_station.dock(Bike.new) }
-      expect { docking_station.dock(Bike.new) }.to raise_error "Docking station full"
+      bike = double("bike")
+      50.times { docking_station.dock(bike) } # bike class not being tested
+      expect { docking_station.dock(bike) }.to raise_error "Docking station full"  # bike class not being tested
     end
 
     it "raises an error using default capacity" do
-      subject.capacity.times { subject.dock(Bike.new) }
-      expect { subject.dock(Bike.new) }.to raise_error "Docking station full"
+      bike = double("bike")
+      subject.capacity.times { subject.dock(bike) } # bike class not being tested
+      expect { subject.dock(bike) }.to raise_error "Docking station full"  # bike class not being tested
     end
   end
 
