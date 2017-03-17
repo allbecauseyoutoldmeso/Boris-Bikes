@@ -1,0 +1,13 @@
+require "van" 
+
+describe Van do
+  it {is_expected.to respond_to :collect} 
+
+  describe "#collect" do 
+    it "collects broken bikes" do
+ 	  broken_bikes = double('broken_bikes')
+ 	  docking_station = double('docking_station', :broken_bikes => [broken_bikes])
+      expect(subject.collect(docking_station.broken_bikes)).to eq [broken_bikes]
+    end 
+  end 
+end 

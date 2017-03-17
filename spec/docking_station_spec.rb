@@ -55,6 +55,13 @@ describe DockingStation do
       subject.capacity.times { subject.dock(bike) } # bike class not being tested
       expect { subject.dock(bike) }.to raise_error "Docking station full"  # bike class not being tested
     end
+
+    it "reports if bike is broken" do 
+      bike = double("bike", :working? => false)
+      subject.dock(bike)
+      expect(subject.broken_bikes).to eq [bike]    
+    end
+
   end
 
   describe '#capacity' do

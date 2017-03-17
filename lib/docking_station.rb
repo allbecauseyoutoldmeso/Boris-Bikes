@@ -1,4 +1,5 @@
 require_relative "bike"
+require_relative "van"
 
 class DockingStation
 
@@ -26,6 +27,12 @@ class DockingStation
   	# creates an instance variable that stores the variable bike (instance of bike)
   	stored_bikes << bike
   end
+
+  def broken_bikes 
+  	stored_bikes.select do |bike|
+  		!bike.working?
+  	end  
+  end 
 
   private
 
