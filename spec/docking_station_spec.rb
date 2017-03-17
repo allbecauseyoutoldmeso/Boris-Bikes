@@ -8,14 +8,16 @@ describe DockingStation do
   describe "#release_bike" do
     it "releases a bike" do 
       # bike = Bike.new # bike class not being tested
-      bike = double("bike")
+      bike = double('bike')
+      allow(bike).to receive(:working?).and_return(true)
       subject.dock(bike)
-      expect(subject.release_bike).to eq bike
+      expect(subject.release_bike).to eq bike 
     end
 
     it "releases working bikes" do
       # bike = Bike.new # bike class not being tested
-      bike = double("bike")
+      bike = double('bike')
+      allow(bike).to receive(:working?).and_return(true)
       subject.dock(bike)
       subject.release_bike
       expect(bike).to be_working
@@ -27,8 +29,9 @@ describe DockingStation do
     
     it "does not release a broken bike" do 
       # bike = Bike.new # bike class not being tested
-      bike = double("bike")
-      bike.report_broken
+      bike = double('bike')
+      allow(bike).to receive(:working?).and_return(false)
+      # bike.report_broken
       subject.dock(bike)
       expect { subject.release_bike }.to raise_error "Bike broken, can't be released"      
     end
