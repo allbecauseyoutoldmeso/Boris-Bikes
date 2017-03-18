@@ -17,7 +17,9 @@ def report_broken
 end
 
 def mend
-  @working = true 
+  @working = true
 end
+
+
 
 end

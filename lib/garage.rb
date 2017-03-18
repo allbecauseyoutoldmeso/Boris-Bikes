@@ -3,6 +3,8 @@ require_relative "bike"
 
 class Garage
 
+  attr_reader :mended_bikes
+
   def receive_delivery(broken_bikes)
   	@broken_bikes = broken_bikes
   end
@@ -12,10 +14,6 @@ class Garage
       bike.mend
     end
     @mended_bikes = @broken_bikes
-  end
-
-  def mended_bikes
-    @mended_bikes
   end
 
 end

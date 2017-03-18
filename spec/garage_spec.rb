@@ -6,9 +6,8 @@ describe Garage do
 
   describe "#receive_delivery" do
     it "receives broken bikes delivery from van" do
-      broken_bikes = double('broken_bikes')
-      van = double("van", :delivery => broken_bikes)
-      expect(subject.receive_delivery(van.delivery)).to eq broken_bikes
+      broken_bikes = double('van.delivery')
+      expect(subject.receive_delivery(broken_bikes)).to eq broken_bikes
     end
   end
 
