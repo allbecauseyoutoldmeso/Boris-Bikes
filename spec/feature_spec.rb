@@ -8,6 +8,7 @@ docking_station.dock(bike)
 docking_station.broken_bikes
 van = Van.new
 van.collect(docking_station.broken_bikes)
-van.delivery
 garage = Garage.new
-garage.receive_delivery(van) 
+garage.receive_delivery(van.delivery)
+garage.fix_bikes
+van.collect(garage.mended_bikes)
