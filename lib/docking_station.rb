@@ -1,5 +1,6 @@
 require_relative "bike"
 require_relative "van"
+require_relative "garage"
 
 class DockingStation
 
@@ -19,8 +20,8 @@ class DockingStation
     raise "Bike broken, can't be released" if bike_not_working?
     stored_bikes.pop
   end
-  
-  # we pass argument bike, 
+
+  # we pass argument bike,
   def dock(bike)
     raise "Docking station full" if full?
 
@@ -28,11 +29,11 @@ class DockingStation
   	stored_bikes << bike
   end
 
-  def broken_bikes 
+  def broken_bikes
   	stored_bikes.select do |bike|
   		!bike.working?
-  	end  
-  end 
+  	end
+  end
 
   private
 
@@ -40,15 +41,15 @@ class DockingStation
 
   def full?
   	stored_bikes.length >= capacity
-  end  
+  end
 
   def empty?
     stored_bikes.empty?
   end
-  
+
   def bike_not_working?
-    !stored_bikes[-1].working?  
-  end	
+    !stored_bikes[-1].working?
+  end
 
 
 end
