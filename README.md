@@ -1,7 +1,7 @@
 # Boris Bikes Challenge
 
 * Week 1 at Makers Academy.
-* Test driven Ruby project.
+* Pair-coded, test-driven Ruby project.
 * The challenge was to recreate the logic behind London's Boris Bikes.
 * To play with the code clone this repository, navigate to the folder, open `pry` or `irb` and do something like the following...
 
